@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
-@Controller //스프링 컨테이너에서 맴버컨트롤러를 관리한다. 스프링 빈이 관리된다. 라고 한다.
+@Controller
 public class MemberController {
+
     private final MemberService memberService;
 
-    @Autowired
-    public MemberController(MemberService memberService) { //생성자 단축키 맥os는 커맨드+N
+    @Autowired //스프링컨테이너에서 가져온다. DI
+    public MemberController(MemberService memberService) {
         this.memberService = memberService;
     }
     @GetMapping("/members/new") // (1) 이 url을 입력하면
@@ -39,4 +40,5 @@ public class MemberController {
         model.addAttribute("members",members);
         return "members/memberList";
     }
+
 }

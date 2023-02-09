@@ -6,10 +6,12 @@ import hello.hellospring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 
+@Transactional //JPA에서는 넣어줘야한다. 데이터를 저장하거나 변경할때
 public class MemberService {
     //서비스단을 다 작성 후 CNT+SHIFT+T 하면 서비스단을 테스트할 수 있다.
     private final MemberRepository memberRepository;
